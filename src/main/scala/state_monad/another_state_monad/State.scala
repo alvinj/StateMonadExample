@@ -4,7 +4,7 @@ package state_monad.another_state_monad
   * This source code is for another `State` monad
   * that I modified until I could understand it.
   */
-case class State[A,S](run: S => (A,S)) {
+case class State[A,S](run: A => (A,S)) {
 
     // s1 = state1, s2 = state2, s3 = state3
     def flatMap[B](f: A => State[B,S]): State[B,S] = State { s1: S =>
